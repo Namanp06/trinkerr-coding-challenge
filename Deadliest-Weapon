@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool mycmp(string a,string b){
+    int n1=a.size(),n2=b.size();
+    int i=0;
+    while(i<n1 || i<n2){
+        if(i<n1 && i==n2)return false;
+        else if(a[i]>b[i])return true;
+        else if(a[i]==b[i]){i++;continue;}
+        else return false;
+    }
+    
+}
+int main()
+{
+    //input array A[] and its size is n
+    int n=2;
+    vector<int>v={91,3};
+    //converting into array of string 
+    vector<string>s;
+    string ans="";
+    
+    for(int i=0;i<n;i++){
+        s.push_back(to_string(v[i]));
+    }
+    //sorting in decending order
+    sort(s.begin(),s.end(),mycmp);
+
+    //creating the largest ans possible by appending the string
+    for(int i=0;i<n;i++)ans+=s[i];
+    cout<<ans;
+    return 0;
+}
